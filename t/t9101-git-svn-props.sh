@@ -174,7 +174,8 @@ test_expect_success 'test create-ignore' "
 	cmp ./deeply/.gitignore create-ignore.expect &&
 	cmp ./deeply/nested/.gitignore create-ignore.expect &&
 	cmp ./deeply/nested/directory/.gitignore create-ignore.expect &&
-	git ls-files -s | grep gitignore | cmp - create-ignore-index.expect
+	git ls-files -s >ls_files_result &&
+	grep gitignore ls_files_result | cmp - create-ignore-index.expect
 	"
 
 cat >prop.expect <<\EOF
