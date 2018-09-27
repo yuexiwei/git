@@ -785,7 +785,7 @@ test_expect_success 'submodule add places git-dir in superprojects git-dir' '
 	 git submodule add ../submodule deeper/submodule &&
 	 git -C deeper/submodule log >expected &&
 	 git -C .git/modules/deeper%2fsubmodule log >actual &&
-	 test_cmp actual expected
+	 test_cmp expected actual
 	)
 '
 
@@ -800,7 +800,7 @@ test_expect_success 'submodule update places git-dir in superprojects git-dir' '
 
 	 git -C deeper/submodule log >expected &&
 	 git -C .git/modules/deeper%2fsubmodule log >actual &&
-	 test_cmp actual expected
+	 test_cmp expected actual
 	)
 '
 
@@ -818,7 +818,7 @@ test_expect_success 'submodule add places git-dir in superprojects git-dir recur
 	 git add deeper/submodule &&
 	 git commit -m "update submodule" &&
 	 git push origin : &&
-	 test_cmp actual expected
+	 test_cmp expected actual
 	)
 '
 
@@ -865,7 +865,7 @@ test_expect_success 'submodule update places git-dir in superprojects git-dir re
 	 (cd .git/modules/submodule/modules/subsubmodule &&
 	  git log > ../../../../../actual
 	 ) &&
-	 test_cmp actual expected
+	 test_cmp expected actual
 	)
 '
 
